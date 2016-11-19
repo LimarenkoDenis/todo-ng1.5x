@@ -1,9 +1,19 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12" ng-repeat="item in $ctrl.items">
-            <div>
-              {{item.title}}
-            </div>
-        </div>
+  <div class="row">
+    <div>
+      <form class="col-md-6 form-inline">
+        <h3>Add new task</h3>
+        <input class="form-control" type="text" ng-model="newTask.title">
+        <button class="btn btn-primary" ng-click='$ctrl.create(newTask)'>Add</button>
+      </form>
     </div>
+    <div class="col-md-12" ng-repeat="item in $ctrl.items">
+      <div class="item">
+        <button class="btn btn-primary" ng-click="$ctrl.remove(item._id)">x</button>
+        <span>
+          {{item.title}}
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
